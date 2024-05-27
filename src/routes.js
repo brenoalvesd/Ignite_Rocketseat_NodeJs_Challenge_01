@@ -5,7 +5,7 @@ import { randomUUID } from 'node:crypto'
 const database = new Database()
 
 export const routes = [
-  {
+{
   method: 'POST',
   path: buildRoutePath('/tasks'),
   handler: (req, res) => {
@@ -95,6 +95,7 @@ export const routes = [
         return res.writeHead(404).end('There is no task with this given ID')
       } else {
         database.delete('tasks', id)
+        
         return res.writeHead(204).end('Task deleted successfully!')
       }
     }
