@@ -98,5 +98,22 @@ export const routes = [
         return res.writeHead(204).end('Task deleted successfully!')
       }
     }
+  },
+  {
+    method: 'PATCH',
+    path: buildRoutePath('/tasks/:id/complete'),
+    handler: (req, res) => {
+      const { id } = req.params
+      
+      const [task] = database.select('tasks', { id })
+
+      if (!task) {
+          return res.writeHead(404).end(JSON.stringify({ message: 'There is no task with this given ID' }))
+      } else {
+          database.update('tasks', id, { completed_at: new Date().toISOString() })
+
+          return res.writeHead(204).end('Task status updated successfully!')
+      }
+    }
   }
 ]
