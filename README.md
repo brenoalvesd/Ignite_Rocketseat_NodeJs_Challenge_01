@@ -35,8 +35,6 @@ A API contém as seguintes funcionalidades:
     
     Deve ser possível listar todas as tasks salvas no banco de dados.
     
-    Também deve ser possível realizar uma busca, filtrando as tasks pelo `title` e `description`
-    
 - `PUT - /tasks/:id`
     
     Deve ser possível atualizar uma task pelo `id`.
